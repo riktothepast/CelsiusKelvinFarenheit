@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.awt.event.*;
 
-public class CKF extends JFrame{
+public class Conversor_201213255 extends JFrame{
 	//Definiendo variables visibles
 	double Numero, Numero2;
 	double por = 1.8;
@@ -9,11 +9,11 @@ public class CKF extends JFrame{
 	public JLabel info1 = new JLabel("Introduzca el valor a convertir");
 	public JLabel Tempe1 = new JLabel("Cantidad: ");
 	public JTextField Temperatura = new JTextField("0");
-	public JButton KC = new JButton("K  a  °C");
-	public JButton CK = new JButton("°C  a  K");
-	public JButton FC = new JButton("°F  a  °C");
-	public JButton CF = new JButton("°C  a  °F");
-	public JButton Reutilizar = new JButton("Utilizar Número");
+	public JButton KC = new JButton("K  a  ï¿½C");
+	public JButton CK = new JButton("ï¿½C  a  K");
+	public JButton FC = new JButton("ï¿½F  a  ï¿½C");
+	public JButton CF = new JButton("ï¿½C  a  ï¿½F");
+	public JButton Reutilizar = new JButton("Utilizar Nï¿½mero");
 	public JButton Reiniciar = new JButton("Reiniciar");
 	public JLabel Tempe2 = new JLabel("Temperatura");
 	public JLabel kel4 = new JLabel("0");
@@ -31,7 +31,7 @@ public class CKF extends JFrame{
 		this.setVisible(true);
 		this.setLayout(null);
 
-		//Ubicación de variables
+		//Ubicaciï¿½n de variables
 		info1.setBounds(10, 10, 200, 20);
 		Temperatura.setBounds(75, 40, 150, 20);
 		Tempe1.setBounds(10, 40, 65, 20);
@@ -58,7 +58,7 @@ public class CKF extends JFrame{
 		this.add(Reiniciar);
 	}
 
-	//Accion de boton K > °C
+	//Accion de boton K > ï¿½C
 	{
 		KC.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt){
@@ -70,7 +70,7 @@ public class CKF extends JFrame{
 		});
 	}
 
-	//Accion de boton °C > K
+	//Accion de boton ï¿½C > K
 	{
 		CK.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt){
@@ -83,7 +83,7 @@ public class CKF extends JFrame{
 	}
 
 
-	//Accion de boton °C > °F
+	//Accion de boton ï¿½C > ï¿½F
 	{
 		CF.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt){
@@ -95,7 +95,7 @@ public class CKF extends JFrame{
 		});
 	}
 
-	//Accion de boton °F > °C
+	//Accion de boton ï¿½F > ï¿½C
 	{
 		FC.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt){
@@ -107,7 +107,7 @@ public class CKF extends JFrame{
 		});
 	}
 
-	//Accion de boton "Utilizar Número"
+	//Accion de boton "Utilizar Nï¿½mero"
 	{
 		Reutilizar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt){
