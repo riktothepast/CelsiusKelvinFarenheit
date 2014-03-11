@@ -3,134 +3,109 @@ import java.awt.event.*;
 
 public class Conversor_201213255 extends JFrame{
 	//Definiendo variables visibles
-	double Numero, Numero2;
+	double Kelvin, Celsius, Fahrenheit;
+	double Numero1, Numero2;
 	double por = 1.8;
 	String Escala="";
 	public JLabel info1 = new JLabel("Introduzca el valor a convertir");
-	public JLabel Tempe1 = new JLabel("Cantidad: ");
-	public JTextField Temperatura = new JTextField("0");
-	public JButton KC = new JButton("K  a  �C");
-	public JButton CK = new JButton("�C  a  K");
-	public JButton FC = new JButton("�F  a  �C");
-	public JButton CF = new JButton("�C  a  �F");
-	public JButton Reutilizar = new JButton("Utilizar N�mero");
-	public JButton Reiniciar = new JButton("Reiniciar");
-	public JLabel Tempe2 = new JLabel("Temperatura");
+
+	public JLabel kel1 = new JLabel("Kelvin:     ");
+	public JLabel cel1 = new JLabel("Celsius:    ");
+	public JLabel far1 = new JLabel("Fahrenheit: ");
+
+	public JTextField kel2 = new JTextField("0");
+	public JTextField cel2 = new JTextField("0");
+	public JTextField far2 = new JTextField("0");
+
+	public JButton Convertir = new JButton("Convertir");
+
+	public JLabel kel3 = new JLabel("Kelvin:     ");
+	public JLabel cel3 = new JLabel("Celsius:    ");
+	public JLabel far3 = new JLabel("Fahrenheit: ");
+
 	public JLabel kel4 = new JLabel("0");
-
-
+	public JLabel cel4 = new JLabel("0");
+	public JLabel far4 = new JLabel("0");
 
 
 	public void Programa(){
 //Propiedades de ventana
 		this.setTitle("201213255");
-		this.setSize(250,250);
+		this.setSize(250,300);
 		this.setResizable(false);
 		this.setLocationRelativeTo(null);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setVisible(true);
 		this.setLayout(null);
 
-		//Ubicaci�n de variables
-		info1.setBounds(10, 10, 200, 20);
-		Temperatura.setBounds(75, 40, 150, 20);
-		Tempe1.setBounds(10, 40, 65, 20);
-		KC.setBounds(10, 70, 105, 20);
-		CK.setBounds(125, 70, 105, 20);
-		FC.setBounds(10, 100, 105, 20);
-		CF.setBounds(125, 100, 105, 20);
-		Tempe2.setBounds(10, 130, 200, 20);
-		kel4.setBounds(10, 155, 150, 20);
-		Reutilizar.setBounds(10, 190, 130, 20);
-		Reiniciar.setBounds(150, 190, 85, 20);
+		//Ubicación de variables
+		info1.setBounds(20, 10, 200, 20);
+		kel1.setBounds(20, 40, 80, 20);
+		cel1.setBounds(20, 70, 80, 20);
+		far1.setBounds(20, 100, 80, 20);
+		kel2.setBounds(110, 40, 100, 20);
+		cel2.setBounds(110, 70, 100, 20);
+		far2.setBounds(110, 100, 100, 20);
+		Convertir.setBounds(20, 130, 190, 20);
+		kel3.setBounds(20, 160, 80, 20);
+		cel3.setBounds(20, 190, 80, 20);
+		far3.setBounds(20, 220, 80, 20);
+		kel4.setBounds(110, 160, 100, 20);
+		cel4.setBounds(110, 190, 100, 20);
+		far4.setBounds(110, 220, 100, 20);
 
 		//Haciendo variables visibles
 		this.add(info1);
-		this.add(Temperatura);
-		this.add(Tempe1);
-		this.add(KC);
-		this.add(CK);
-		this.add(CF);
-		this.add(FC);
-		this.add(Tempe2);
+		this.add(kel1);
+		this.add(cel1);
+		this.add(far1);
+		this.add(kel2);
+		this.add(cel2);
+		this.add(far2);
+		this.add(Convertir);
+		this.add(kel3);
+		this.add(cel3);
+		this.add(far3);
 		this.add(kel4);
-		this.add(Reutilizar);
-		this.add(Reiniciar);
-	}
+		this.add(cel4);
+		this.add(far4);
 
-	//Accion de boton K > �C
-	{
-		KC.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent evt){
-				Numero = Double.parseDouble(Temperatura.getText());
-				Tempe2.setText("Temperatura en Celsius");
-				Numero2 = Numero - 273.15;
-				kel4.setText(Numero2+"");
-			}
-		});
-	}
-
-	//Accion de boton �C > K
-	{
-		CK.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent evt){
-				Numero = Double.parseDouble(Temperatura.getText());
-				Tempe2.setText("Temperatura en Kelvin");
-				Numero2 = Numero + 273.15;
-				kel4.setText(Numero2+"");
-			}
-		});
-	}
-
-
-	//Accion de boton �C > �F
-	{
-		CF.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent evt){
-				Numero = Double.parseDouble(Temperatura.getText());
-				Tempe2.setText("Temperatura en Fahrenheit");
-				Numero2 = (Numero * por)+32;
-				kel4.setText(Numero2+"");
-			}
-		});
-	}
-
-	//Accion de boton �F > �C
-	{
-		FC.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent evt){
-				Numero = Double.parseDouble(Temperatura.getText());
-				Tempe2.setText("Temperatura en Celsius");
-				Numero2 = ((Numero-32)*5)/9;
-				kel4.setText(Numero2+"");
-			}
-		});
-	}
-
-	//Accion de boton "Utilizar N�mero"
-	{
-		Reutilizar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent evt){
-				Temperatura.setText(Numero2+"");
-			}
-		});
 	}
 
 	//Accion de boton "Reiniciar"
 	{
-		Reiniciar.addActionListener(new ActionListener() {
+		Convertir.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent evt){
-				Numero = 0;
-				Numero2 = 0;
-				Tempe2.setText("Temperatura");
-				kel4.setText("0");
-				Temperatura.setText("0");
+				Kelvin = Double.parseDouble(kel2.getText());
+				Celsius = Double.parseDouble(cel2.getText());
+				Fahrenheit = Double.parseDouble(far2.getText());
+
+				if(cel2.getText().equals("0") && far2.getText().equals("0")){
+					Numero1 = Kelvin - 273.15;
+					kel4.setText(Kelvin+"");
+					cel4.setText(Numero1+"");
+					Numero2 = ((Kelvin-273.15)*por)+32;
+					far4.setText(Numero2+"");
+				}else if(kel2.getText().equals("0") && far2.getText().equals("0")){
+					Numero1 = Celsius + 273.15;
+					Numero2 = ((Celsius*por)+32);
+					kel4.setText(Numero1+"");
+					cel4.setText(Celsius+"");
+					far4.setText(Numero2+"");
+				}else if(kel2.getText().equals("0") && cel2.getText().equals("0")){
+					Numero1 = ((Fahrenheit-32)*5)/9;
+					Numero2 = (((Fahrenheit-32)*5)/9)+273.15;
+					kel4.setText(Numero2+"");
+					cel4.setText(Numero1+"");
+					far4.setText(Fahrenheit+"");
+				}
 			}
 		});
 	}
 
+
 	public static void main (String args[]){
-		new CKF().Programa();
+		new CKF_201213255().Programa();
 	}
 
 }
