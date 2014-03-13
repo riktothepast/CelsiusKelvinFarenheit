@@ -1,0 +1,151 @@
+import javax.swing.JButton;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public class Termometro extends JFrame{
+	JFrame jframe;
+	JLabel etiqueta,etiqueta1,etiqueta2;
+	JButton boton,limpiar;
+	JTextField cel,cel1,cel2;
+	JPanel panel;
+	String C1,K1,F1;
+	double C,K,F =0 ;
+
+	public Termometro(){
+		panel = new JPanel();
+		panel.setLayout(null);
+		panel.setSize(400,230);
+		panel.setVisible(true);
+		
+		
+	  etiqueta = new JLabel("Grados Celsius");
+		etiqueta.setSize(120,20);
+		etiqueta.setLocation(40,20);
+		panel.add(etiqueta);
+		
+		cel = new JTextField();
+		cel.setSize(120,20);
+		cel.setLocation(40,40);
+		panel.add(cel);
+		
+		etiqueta1 = new JLabel("Grados Farenheit");
+		etiqueta1.setSize(120,20);
+		etiqueta1.setLocation(40,70);
+		panel.add(etiqueta1);
+		
+		cel1 = new JTextField();
+		cel1.setSize(120,20);
+		cel1.setLocation(40,90);
+		panel.add(cel1);
+		
+		etiqueta2 = new JLabel("Grados Kelvin");
+		etiqueta2.setSize(120,20);
+		etiqueta2.setLocation(40,120);
+		panel.add(etiqueta2);
+		
+		cel2 = new JTextField();
+		cel2.setSize(120,20);
+		cel2.setLocation(40,140);
+		panel.add(cel2);
+		
+		boton = new JButton("Convertir");
+		boton.setSize(100,20);
+		boton.setLocation(165,70);
+		boton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e)
+            {
+               	Convertir(); 
+               		cel.setText(C1);
+               		cel1.setText(F1);
+               	    cel2.setText(K1);
+               
+            }
+        }); 
+		
+		
+		panel.add(boton);
+		
+		limpiar = new JButton("Limpiar");
+		limpiar.setSize(100,20);
+		limpiar.setLocation(165,100);
+		limpiar.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e)
+            {
+                cel.setText("");
+                cel1.setText("");
+                cel2.setText("");
+            }
+        }); 
+		
+		panel.add(limpiar);
+		
+		
+		add(panel);
+		setVisible(true);
+		setSize(300,230);
+		this.setTitle("Termometro");
+		this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
+		this.setResizable(false);
+		
+		
+		
+		}
+
+
+		void Convertir(){
+			 C1=cel.getText();
+			 F1=cel1.getText();
+			 K1=cel2.getText();
+			 if(C1.equals("")){
+			 	C=0;	
+			 }
+			 else{
+			 	C=Double.parseDouble(C1);
+			 	
+			 }
+			 if(F1.equals("")){
+			 F=0;
+			 }
+			 else{
+			 	F=Double.parseDouble(F1);
+			 }
+			 if(K1.equals("")){
+			 	K=0;
+			 }
+			 else{
+			 		K=Double.parseDouble(K1);
+			 }
+					
+			 		  if(C!=0 && F==0 && K==0){
+           	F=Math.rint((1.8*C + 32)*100)/100;
+           	K=Math.rint((C+273.15)*100)/100;
+            F1=Double.toString(F);
+            K1=Double.toString(K);
+      	
+           }
+           else if(C==0 && F!=0 && K==0){
+           	C=Math.rint(((F-32)/1.8)*100)/100;
+           	K=Math.rint(((F+459.67)/1.8)*100)/100; 
+           	C1=Double.toString(C);
+           	K1=Double.toString(K);	
+         
+           }
+           else if(C==0 && F==0 && K!=0){
+           	C= Math.rint((K - 273.15)*100)/100;
+           	F=Math.rint(((1.8*K) - 459.67)*100)/100;	
+           	C1=Double.toString(C);
+           	F1=Double.toString(F);		
+       	           }
+       	  
+			
+			}
+		
+public static void main(String args[]){
+		Termometro T = new Termometro();
+	}
+
+	}
