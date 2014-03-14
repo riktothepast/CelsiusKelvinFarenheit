@@ -10,7 +10,7 @@ public class Tarea4_201212640 extends JFrame{
 	
 	public Tarea4_201212640(){
 	super();
-	
+	//Ventana principal
 	JLabel lb1=new JLabel("Grados Kelvin");
 	lb1.setBounds(30, 25, 120, 20);
     this.add(lb1);
