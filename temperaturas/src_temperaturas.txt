@@ -1,0 +1,2 @@
+"C:\\Users\\Mario Ruano\\Documents\\JCreator Pro\\MyProjects\\temperaturas\\src\\temperaturas.java"
+"C:\\Users\\Mario Ruano\\Documents\\JCreator Pro\\MyProjects\\temperaturas\\src\\ventana.java"
