@@ -51,6 +51,54 @@ public class ventana extends JFrame {
    	add(incel);
    	add(infar);
    	add(inkel);
+   	 calcular.addActionListener(new ActionListener(){public void actionPerformed(ActionEvent e){
+       calculo();
+        }});
+   	limpiar.addActionListener(new ActionListener(){public void actionPerformed(ActionEvent e){
+       limpia();
+        }});
    	
     }
+    
+    public void calculo(){
+    	ce=Double.parseDouble(incel.getText());
+    	fa=Double.parseDouble(infar.getText());
+    	ke=Double.parseDouble(inkel.getText());
+    	
+    	if(ce!=0&&fa==0&&ke==0){
+    		fa=(1.8*ce)+32;
+    		
+    		infar.setText(""+Double.toString(fa));
+    		
+    		ke=ce+273.15;
+    		String kel=Double.toString(ke);
+    		inkel.setText("" +kel);
+    		}
+    		if(ce==0&&fa!=0&&ke==0){
+    		ce=(fa-32)/1.8;
+    		
+    		incel.setText(""+Double.toString(ce));
+    		
+    		ke=ce+273.15;
+    		String kel=Double.toString(ke);
+    		inkel.setText("" +kel);
+    		}
+    	    if(ce==0&&fa==0&&ke!=0){
+    		
+    		ce=ke-273.15;
+    		incel.setText(""+Double.toString(ce));
+    		
+    		fa=(1.8*ce)+32;
+    		
+    		infar.setText("" +Double.toString(fa));
+    		}
+
+    	
+    	}
+    	
+	public void limpia(){
+		inkel.setText("0");
+		infar.setText("0");
+		incel.setText("0");
+		}
 }
