@@ -12,19 +12,15 @@ public class Convertidor extends JFrame{
 	JLabel Celsius;
 	JLabel Farenheit;
 	JLabel Kelvin;
+	JLabel C;
+	JLabel F;
+	JLabel K;
 	JPanel Panel;
 	JButton Convertir;
 	JButton Reiniciar;
 	JTextArea TempCelsius;
 	JTextArea TempFarenheit;
 	JTextArea TempKelvin;
-	String GradosC = " ";
-	String GradosF = " ";
-	String GradosK = " ";
-	float ftGradosC = 0;
-	float ftGradosF = 0;
-	float ftGradosK = 0;
-	
 	
 	public Convertidor(){
 		Panel = new JPanel();
@@ -37,9 +33,12 @@ public class Convertidor extends JFrame{
 		TempCelsius = new JTextArea();
 		TempFarenheit = new JTextArea();
 		TempKelvin = new JTextArea();
-		
+		C = new JLabel();
+		F = new JLabel();
+		K = new JLabel();
 		
 		Componentes();
+		Convertir();
 		Limpiar();
 	}
 	
@@ -55,21 +54,30 @@ public class Convertidor extends JFrame{
 		Panel.add(TempCelsius);
 		Panel.add(TempFarenheit);
 		Panel.add(TempKelvin);
+		Panel.add(C);
+		Panel.add(F);
+		Panel.add(K);
 		
 		Titulo.setText("Convertidor de Temperatura");
 		Titulo.setBounds(210,20,200,40);
 		
 		Celsius.setText("Grados en Celsius");
 		Celsius.setBounds(180,80,140,40);
-		TempCelsius.setBounds(300,90,40,20);
+		C.setText("C");
+		C.setBounds(380,80,140,40);
+		TempCelsius.setBounds(300,90,60,20);
 		
 		Farenheit.setText("Grados en Farenheit");
 		Farenheit.setBounds(180,120,140,40);
-		TempFarenheit.setBounds(300,130,40,20);
+		F.setText("F");
+		F.setBounds(380,120,140,40);
+		TempFarenheit.setBounds(300,130,60,20);
 		
 		Kelvin.setText("Grados en Kelvin");
 		Kelvin.setBounds(180,160,140,40);
-		TempKelvin.setBounds(300,170,40,20);
+		K.setText("K");
+		K.setBounds(380,160,140,40);
+		TempKelvin.setBounds(300,170,60,20);
 		
 		Convertir.setText("Convertir");
 		Convertir.setBounds(180,220,100,40);
@@ -81,13 +89,14 @@ public class Convertidor extends JFrame{
 		Convertir.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e)
             {
-                GradosC = TempCelsius.getText();
-				ftGradosC = Float.parseFloat(GradosC);
-				ftGradosF = (ftGradosC * (9/5)) + 32; 
-				ftGradosK = ftGradosC + 273;
-				GradosF = String.valueOf(ftGradosF);
-				GradosK = String.valueOf(ftGradosK);
-				GradosF = TempFarenheit.getText();
+				String GradosC = TempCelsius.getText();
+				int ftGradosC = Integer.parseInt(GradosC);
+				int ftGradosF = (ftGradosC * (9/5)) + 32; 
+				int ftGradosK = ftGradosC + 273;
+				String GradosF = String.valueOf(ftGradosF);
+				String GradosK = String.valueOf(ftGradosK);
+				TempCelsius.setText(GradosC);
+				TempFarenheit.setText(GradosF);
 				TempKelvin.setText(GradosK);
             }
         });
