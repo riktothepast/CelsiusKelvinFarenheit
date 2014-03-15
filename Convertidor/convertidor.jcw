@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<workspace>
+	<settings>
+		<label>convertidor</label>
+	</settings>
+	<users>
+		<user>
+			<path>convertidor.jcu</path>
+		</user>
+	</users>
+	<projects>
+		<project>
+			<path>convertidor.jcp</path>
+		</project>
+	</projects>
+</workspace>
