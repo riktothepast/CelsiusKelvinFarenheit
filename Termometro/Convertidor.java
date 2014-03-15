@@ -2,9 +2,11 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JButton;
-import javax.swing.JTextArea;
+import javax.swing.JTextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 
 public class Convertidor extends JFrame{
 	
@@ -18,9 +20,10 @@ public class Convertidor extends JFrame{
 	JPanel Panel;
 	JButton Convertir;
 	JButton Reiniciar;
-	JTextArea TempCelsius;
-	JTextArea TempFarenheit;
-	JTextArea TempKelvin;
+	JTextField TempCelsius;
+	JTextField TempFarenheit;
+	JTextField TempKelvin;
+	int opcion = 0;
 	
 	public Convertidor(){
 		Panel = new JPanel();
@@ -30,9 +33,9 @@ public class Convertidor extends JFrame{
 		Kelvin = new JLabel();
 		Convertir = new JButton();
 		Reiniciar = new JButton();
-		TempCelsius = new JTextArea();
-		TempFarenheit = new JTextArea();
-		TempKelvin = new JTextArea();
+		TempCelsius = new JTextField();
+		TempFarenheit = new JTextField();
+		TempKelvin = new JTextField();
 		C = new JLabel();
 		F = new JLabel();
 		K = new JLabel();
@@ -40,6 +43,7 @@ public class Convertidor extends JFrame{
 		Componentes();
 		Convertir();
 		Limpiar();
+		Editar();
 	}
 	
 	public void Componentes(){
@@ -89,15 +93,38 @@ public class Convertidor extends JFrame{
 		Convertir.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e)
             {
+				if(opcion == 1  ){
 				String GradosC = TempCelsius.getText();
-				int ftGradosC = Integer.parseInt(GradosC);
-				int ftGradosF = (ftGradosC * (9/5)) + 32; 
-				int ftGradosK = ftGradosC + 273;
+				float ftGradosC = Float.parseFloat(GradosC);
+				float ftGradosF = (ftGradosC * (9/5)) + 32; 
+				float ftGradosK = ftGradosC + 273;
 				String GradosF = String.valueOf(ftGradosF);
 				String GradosK = String.valueOf(ftGradosK);
-				TempCelsius.setText(GradosC);
 				TempFarenheit.setText(GradosF);
 				TempKelvin.setText(GradosK);
+				}
+				
+				if(opcion == 2 ){
+				String GradosF = TempFarenheit.getText();
+				float ftGradosF = Float.parseFloat(GradosF);
+				float ftGradosC = (ftGradosF - 32) * (5/9); 
+				float ftGradosK = ftGradosC + 273;
+				String GradosC = String.valueOf(ftGradosC);
+				String GradosK = String.valueOf(ftGradosK);
+				TempCelsius.setText(GradosC);
+				TempKelvin.setText(GradosK);
+				}
+				
+				if(opcion == 3 ){
+				String GradosK = TempKelvin.getText();
+				float ftGradosK = Float.parseFloat(GradosK);
+				float ftGradosC = ftGradosK - 273;
+				float ftGradosF = (ftGradosC * (9/5)) + 32; 
+				String GradosF = String.valueOf(ftGradosF);
+				String GradosC = String.valueOf(ftGradosC);
+				TempCelsius.setText(GradosC);
+				TempFarenheit.setText(GradosF);
+				}
             }
         });
 	}
@@ -106,11 +133,41 @@ public class Convertidor extends JFrame{
 		Reiniciar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e)
             {
+			
                 TempFarenheit.setText(" ");
 				TempKelvin.setText(" ");
 				TempCelsius.setText(" ");
+
             }
         });
 	}
 	
+	public void Editar(){
+		TempCelsius.addFocusListener(new FocusListener() {
+			public void focusLost(FocusEvent e) {
+				opcion = 1;
+			}
+			public void focusGained(FocusEvent e) {
+
+            }
+		});
+		
+		TempFarenheit.addFocusListener(new FocusListener() {
+			public void focusLost(FocusEvent e) {
+				opcion = 2;
+			}
+			public void focusGained(FocusEvent e) {
+
+            }
+		});
+		
+		TempKelvin.addFocusListener(new FocusListener() {
+			public void focusLost(FocusEvent e) {
+				opcion = 3;
+			}
+			public void focusGained(FocusEvent e) {
+
+            }
+		});
+	}
 }
