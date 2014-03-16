@@ -1,0 +1,172 @@
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JButton;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public class Convertidor extends JFrame{
+	JFrame jframe;
+	JLabel et,et1,et2;
+	JButton boton,limpiar,salir;
+	JTextField cel,cel1,cel2;
+	JPanel panel;
+	String ce,ke,fa;
+	double C,K,F =0 ;
+
+	public Convertidor(){
+		panel = new JPanel();
+		panel.setLayout(null);
+		panel.setSize(500,250);
+		panel.setVisible(true);
+		
+		
+	    et = new JLabel("Grados Celsius");
+		et.setSize(120,20);
+		et.setLocation(40,20);
+		panel.add(et);
+		
+		cel = new JTextField();
+		cel.setSize(80,20);
+		cel.setLocation(40,40);
+		panel.add(cel);
+		
+		et1 = new JLabel("Grados Farenheit");
+		et1.setSize(120,20);
+		et1.setLocation(40,70);
+		panel.add(et1);
+		
+		cel1 = new JTextField();
+		cel1.setSize(80,20);
+		cel1.setLocation(40,90);
+		panel.add(cel1);
+		
+		et2 = new JLabel("Grados Kelvin");
+		et2.setSize(120,20);
+		et2.setLocation(40,120);
+		panel.add(et2);
+		
+		cel2 = new JTextField();
+		cel2.setSize(80,20);
+		cel2.setLocation(40,140);
+		panel.add(cel2);
+		
+		boton = new JButton("Convertir");
+		boton.setSize(100,20);
+		boton.setLocation(165,70);
+		boton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e)
+            {
+               	Convertir(); 
+               		cel.setText(ce);
+               		cel1.setText(fa);
+               	    cel2.setText(ke);
+               
+            }
+        }); 
+		
+		
+		panel.add(boton);
+		
+		limpiar = new JButton("Limpiar");
+		limpiar.setSize(100,20);
+		limpiar.setLocation(165,100);
+		limpiar.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e)
+            {
+                cel.setText("");
+                cel1.setText("");
+                cel2.setText("");
+            }
+        }); 
+		
+		panel.add(limpiar);
+		
+		salir = new JButton("Salir");
+		salir.setSize(100,20);
+		salir.setLocation(165,130);
+		salir.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e)
+            {
+               System.exit(0);
+            }
+        }); 
+		
+		panel.add(salir);
+		
+		
+		add(panel);
+		setVisible(true);
+		setSize(300,230);
+		this.setTitle("Convertidor");
+		this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
+		this.setResizable(false);
+		
+		
+		
+		}
+
+
+		void Convertir(){
+			
+			
+
+			 ce=cel.getText();
+			 fa=cel1.getText();
+			 ke=cel2.getText();
+			 if(ce.equals("")){
+			 	C=0;	
+			 }
+			 else{
+			 	C=Double.parseDouble(ce);
+			 	
+			 }
+			 if(fa.equals("")){
+			 F=0;
+			 }
+			 else{
+			 	F=Double.parseDouble(fa);
+			 }
+			 if(ke.equals("")){
+			 	K=0;
+			 }
+			 else{
+			 		K=Double.parseDouble(ke);
+			 }
+					
+			 		 
+                	               
+                
+                
+                              
+           if(C!=0 && F==0 && K==0){
+           	F=Math.rint((1.8*C + 32)*100)/100;
+           	K=Math.rint((C+273.15)*100)/100;
+            fa=Double.toString(F);
+            ke=Double.toString(K);
+      	
+           }
+           else if(C==0 && F!=0 && K==0){
+           	C=Math.rint(((F-32)/1.8)*100)/100;
+           	K=Math.rint(((F+459.67)/1.8)*100)/100; 
+           	ce=Double.toString(C);
+           	ke=Double.toString(K);	
+         
+           }
+           else if(C==0 && F==0 && K!=0){
+           	C= Math.rint((K - 273.15)*100)/100;
+           	F=Math.rint(((1.8*K) - 459.67)*100)/100;	
+           	ce=Double.toString(C);
+           	fa=Double.toString(F);		
+       	           }
+       	  
+			
+			}
+		
+public static void main(String args[]){
+		Convertidor T = new Convertidor();
+	}
+
+	}
+
